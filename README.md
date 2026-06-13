@@ -18,7 +18,7 @@ usado para la gestión de proyectos, tickets y trazabilidad de mi portafolio QA/
 ## Levantar el entorno
 
 ```bash
-git clone https://github.com/tu-usuario/tuleap-qa-workflow.git
+git clone https://github.com/Dlp-Ritter/tuleap.git
 cd tuleap-qa-workflow
 docker compose up -d
 ```
@@ -50,12 +50,17 @@ _(Link o resumen del plan de testing — ver `TEST-PLAN.md` en `cypress-e2e-suit
 
 ## Cómo se integra en mi portafolio
 
-- [`cypress-e2e-suite`](https://github.com/tu-usuario/cypress-e2e-suite) — los tests referenciados en la tabla de trazabilidad.
-- [`jenkins-devsecops-pipeline`](https://github.com/tu-usuario/jenkins-devsecops-pipeline) — pipeline cuyas ejecuciones generan los tickets de bugs.
+- [`cypress-e2e`](https://github.com/Dlp-Ritter/cypress-e2e) — los tests referenciados en la tabla de trazabilidad.
 
 ---
 
 ## Contacto
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tu-perfil/)
-[![Email](https://img.shields.io/badge/Email-8B89CC?style=flat-square&logo=protonmail&logoColor=white)](mailto:tu-correo@protonmail.com)
+<p align="left">
+<a href="https://www.linkedin.com/in/duglas-pop-guitz-490ab72b0">
+<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+</a>
+<a href="mailto:duglas_leonel_1704@protonmail.com">
+<img src="https://img.shields.io/badge/Email-8B89CC?style=flat-square&logo=protonmail&logoColor=white" alt="Email"/>
+</a>
+</p>
