@@ -1,0 +1,45 @@
+services:
+
+  web:
+    image: tuleap/tuleap-community-edition:latest
+    hostname: ${TULEAP_FQDN}
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "80:80" # HTTP
+      - "443:443" # HTTPS
+      - "22:22" # SSH (repos, etc.)
+    environment:
+      # FQDN de la instancia (sin protocolo)
+      - TULEAP_FQDN=${TULEAP_FQDN}
+
+      # Conexión al motor de base de datos (admin)
+      - DB_ADMIN_USER=root
+      - DB_ADMIN_PASSWORD=${MYSQL_ROOT_PASSWORD}
+  
+      # Host de la BD *para Tuleap* (usuario interno codendiadm)
+      - TULEAP_SYS_DBHOST=db
+      - TULEAP_SYS_DBPASSWD=${TULEAP_SYS_DBPASSWD}
+
+      # Password del administrador del sitio (cuenta 'admin')
+      - SITE_ADMINISTRATOR_PASSWORD=${SITE_ADMINISTRATOR_PASSWORD}
+      
+    volumes:
+      - ./tuleap-data:/data:z   
+
+  # Base de datos SOLO para pruebas/desarrollo
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    command:
+      [
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+        "--sql-mode=NO_ENGINE_SUBSTITUTION"
+      ]
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ./db-data:/var/lib/mysql:z  
+
